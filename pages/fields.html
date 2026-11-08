@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>أقسام المتابعة - دفتر المتابعة اليومية</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-nav="fields">
+    <header class="site-header" id="site-header"></header>
+    <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+
+    <main>
+        <section class="panel">
+            <h2>إضافة قسم متابعة جديد</h2>
+            <p class="hint">كل قسم يصبح عموداً في الجدول (مثل: الجديد، المراجعة، الأحاديث، التحفة). يمكنك إضافة أي قسم آخر مثل «المتون» أو «التجويد».</p>
+            <form id="field-form" class="form-row">
+                <div class="field field-grow">
+                    <label for="field-name">اسم القسم</label>
+                    <input type="text" id="field-name" maxlength="40" required autocomplete="off">
+                </div>
+                <div class="field">
+                    <label for="field-kind">نوع الإدخال</label>
+                    <select id="field-kind">
+                        <option value="text">نص (ما الذي أحضره)</option>
+                        <option value="range">من ... إلى ...</option>
+                    </select>
+                </div>
+                <button type="submit" class="button">إضافة</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>أقسام المتابعة الحالية</h2>
+            <p class="hint">الترتيب هنا هو ترتيب الأعمدة في الجدول. تعطيل القسم لا يحذف بياناته القديمة، لكنه يختفي من النماذج الجديدة.</p>
+            <ul class="row-list" id="fields-list"></ul>
+        </section>
+    </main>
+
+    <dialog id="edit-dialog" aria-labelledby="edit-title">
+        <form id="edit-form">
+            <h2 id="edit-title">تعديل اسم القسم</h2>
+            <div class="field">
+                <label for="edit-name">الاسم</label>
+                <input type="text" id="edit-name" maxlength="40" required autocomplete="off">
+            </div>
+            <div class="dialog-actions">
+                <button type="submit" class="button">حفظ</button>
+                <button type="button" class="button button-secondary" id="edit-cancel">إلغاء</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/fields.js"></script>
+</body>
+</html>

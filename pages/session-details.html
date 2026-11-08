@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>تفاصيل الجلسة - دفتر المتابعة اليومية</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-nav="sessions">
+    <header class="site-header" id="site-header"></header>
+    <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+
+    <main>
+        <p class="back-link"><a id="back-to-sessions" href="#">العودة إلى الجلسات</a></p>
+
+        <div id="content" hidden>
+            <section class="panel">
+                <h1 id="session-heading"></h1>
+                <p class="hint" id="session-date-text"></p>
+                <div class="form-row">
+                    <a class="button" id="print-link" href="#">طباعة الجلسة</a>
+                    <a class="button button-secondary" id="report-link" href="#">معاينة الجدول</a>
+                    <button type="button" class="button button-secondary" id="edit-session-button">تعديل العنوان والتاريخ</button>
+                    <button type="button" class="button button-danger" id="delete-session-button">حذف الجلسة</button>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2>إضافة طالب إلى الجلسة</h2>
+                <p class="hint" id="no-students-hint" hidden>لا يوجد طلاب نشطون في هذا القسم. <a id="students-link" href="#">أضف طلاباً</a> أولاً.</p>
+                <p class="hint" id="all-done-hint" hidden>كل الطلاب النشطين لديهم صف في هذه الجلسة.</p>
+                <form id="evaluation-form">
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="evaluation-student">اسم الطالب</label>
+                            <select id="evaluation-student" required></select>
+                        </div>
+                    </div>
+                    <p class="hint" id="no-fields-hint" hidden>لا توجد أقسام متابعة نشطة. <a id="fields-link" href="#">أضف أو فعّل أقسام المتابعة</a> أولاً.</p>
+                    <div id="entries-box"></div>
+                    <div class="form-row">
+                        <button type="submit" class="button" id="evaluation-submit">إضافة إلى الجدول</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel">
+                <div class="panel-head">
+                    <h2>جدول المتابعة</h2>
+                    <span class="hint" id="evaluations-count"></span>
+                </div>
+                <p class="empty" id="evaluations-empty" hidden>لا توجد صفوف بعد. اختر طالباً واكتب ما أحضره في كل قسم (الجديد، المراجعة، الأحاديث...) وتقديره ثم اضغط «إضافة إلى الجدول».</p>
+                <div class="table-scroll">
+                <table class="data-table entries-table" id="evaluations-table" hidden>
+                    <thead>
+                        <tr>
+                            <th scope="col">م</th>
+                            <th scope="col">اسم الطالب</th>
+                            <th scope="col"><span class="visually-hidden">إجراءات</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="evaluations-body"></tbody>
+                </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <dialog id="edit-session-dialog" aria-labelledby="edit-session-title">
+        <form id="edit-session-form">
+            <h2 id="edit-session-title">تعديل الجلسة</h2>
+            <div class="field">
+                <label for="edit-session-title-input">العنوان (اختياري)</label>
+                <input type="text" id="edit-session-title-input" maxlength="150" autocomplete="off">
+            </div>
+            <div class="field">
+                <label for="edit-session-date-input">من تاريخ (بداية الأسبوع)</label>
+                <input type="date" id="edit-session-date-input" required>
+            </div>
+            <div class="field">
+                <label for="edit-session-end-input">إلى تاريخ (نهاية الأسبوع، اختياري)</label>
+                <input type="date" id="edit-session-end-input">
+            </div>
+            <div class="dialog-actions">
+                <button type="submit" class="button">حفظ</button>
+                <button type="button" class="button button-secondary" id="edit-session-cancel">إلغاء</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="edit-evaluation-dialog" class="dialog-wide" aria-labelledby="edit-evaluation-title">
+        <form id="edit-evaluation-form">
+            <h2 id="edit-evaluation-title">تعديل الصف</h2>
+            <p class="hint" id="edit-evaluation-info"></p>
+            <div id="edit-entries-box"></div>
+            <div class="dialog-actions">
+                <button type="submit" class="button">حفظ</button>
+                <button type="button" class="button button-secondary" id="edit-evaluation-cancel">إلغاء</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/session-details.js"></script>
+</body>
+</html>

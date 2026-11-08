@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>الرئيسية - دفتر المتابعة اليومية</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-nav="section">
+    <header class="site-header" id="site-header"></header>
+    <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+
+    <main>
+        <section class="stats" aria-label="إحصائيات القسم">
+            <div class="panel stat">
+                <span class="stat-number" id="active-students-count">-</span>
+                <span class="stat-label">طالب نشط</span>
+            </div>
+            <div class="panel stat">
+                <span class="stat-number" id="sessions-count">-</span>
+                <span class="stat-label">جلسة</span>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-head">
+                <h2>آخر الجلسات</h2>
+                <a class="button" id="new-session-link" href="#">جلسة جديدة</a>
+            </div>
+            <ul class="row-list" id="latest-sessions"></ul>
+        </section>
+    </main>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
