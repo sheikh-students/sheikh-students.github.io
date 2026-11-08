@@ -2,7 +2,7 @@
 // غيّر القيمة إلى أصل API الفعلي، دون إضافة /api في النهاية.
 // مثال: https://api.students.example.com
 window.APP_CONFIG = Object.freeze({
-    API_BASE_URL: "http://127.0.0.1:4000",
+    API_BASE_URL: "https://7lf0bo0fngax-production-6spmgk0k.us-central1.suga.run",
     // فعّلها فقط إذا كان وسيط الحماية الخارجي يعتمد على Cookie وصول.
     INCLUDE_CREDENTIALS: false
 });
