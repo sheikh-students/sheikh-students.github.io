@@ -483,12 +483,12 @@ dialog .field {
         padding: 0.7rem 1rem;
     }
 
-    /* جدول المتابعة: نفس شكل الشاشة الكبيرة، مع تمرير أفقي سلس */
+    /* جدول المتابعة: نفس شكل الشاشة الكبيرة، والتمرير داخل الصندوق فقط */
     .table-scroll {
-        margin: 0 -0.4rem;
-        padding: 0 0.4rem 0.3rem;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        overscroll-behavior-x: contain;
     }
 
     .entries-table {
@@ -516,15 +516,9 @@ dialog .field {
         min-width: 2.5rem;
     }
 
-    /* عمود اسم الطالب يظل ظاهراً أثناء التمرير */
     .entries-table th:nth-child(2),
     .entries-table td:nth-child(2) {
-        position: sticky;
-        inset-inline-start: 0;
-        z-index: 2;
         min-width: 6.5rem;
-        background: var(--surface);
-        border-inline-end: 1px solid var(--line);
     }
 
     .entries-table .row-actions {
@@ -659,7 +653,13 @@ dialog.dialog-wide {
     overflow-y: auto;
 }
 
+.panel,
+main {
+    min-width: 0;
+}
+
 .table-scroll {
+    max-width: 100%;
     overflow-x: auto;
 }
 
