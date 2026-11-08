@@ -50,7 +50,7 @@ function page_url(page, id) {
 const API_BASE_URL = String(
     window.APP_CONFIG && window.APP_CONFIG.API_BASE_URL
         ? window.APP_CONFIG.API_BASE_URL
-        : "http://127.0.0.1:4000"
+        : "https://7lf0bo0fngax-production-6spmgk0k.us-central1.suga.run"
 ).replace(/\/+$/, "");
 
 function resolve_api_url(api_path) {
